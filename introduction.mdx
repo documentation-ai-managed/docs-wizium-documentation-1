@@ -1,0 +1,98 @@
+---
+title: Introduction
+description: Overview of WIZIUM and its core capabilities
+---
+
+## Getting Started with WIZIUM
+
+WIZIUM is a powerful documentation platform designed to help teams organize, manage, and collaborate on project documentation seamlessly. Whether you're building API references, user guides, or technical documentation, WIZIUM provides the tools you need to create professional, searchable docs that scale with your team. Get started today and transform how your team handles documentation.
+
+<Columns cols={3}>
+  <Card title="Quick Setup" icon="rocket" href="setup">
+    Set up your WIZIUM workspace in minutes with our guided onboarding process.
+  </Card>
+  <Card title="Core Features" icon="zap" href="features">
+    Explore powerful features like version control, collaboration tools, and rich formatting.
+  </Card>
+  <Card title="Integrations" icon="plug" href="integrations">
+    Connect WIZIUM with your favorite tools including GitHub, Slack, and Jira.
+  </Card>
+</Columns>
+
+## Key Benefits
+
+WIZIUM offers a comprehensive solution for documentation needs, combining ease of use with enterprise-grade features. Our platform supports multiple documentation formats, real-time collaboration, and advanced search capabilities to ensure your team can find and share information efficiently.
+
+<Callout kind="tip">Tip: Start by creating your first document to explore WIZIUM's intuitive editor and formatting options.</Callout>
+
+## Platform Overview
+
+<Tabs>
+  <Tab title="Web Interface" icon="monitor">
+    Access WIZIUM through our modern web application, available on any device with a browser. The interface is designed for productivity, featuring drag-and-drop organization, real-time previews, and collaborative editing.
+
+    <Steps>
+      <Step title="Sign Up" icon="user">
+        Create your account at wizium.com/signup and verify your email.
+      </Step>
+      <Step title="Create Workspace" icon="folder">
+        Set up your first workspace and invite team members.
+      </Step>
+      <Step title="Add Documents" icon="file-text">
+        Import existing docs or start writing new ones using our rich editor.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="API Access" icon="code">
+    Integrate WIZIUM programmatically using our REST API for automated documentation workflows.
+
+    <CodeGroup tabs="curl,python">
+      ````bash
+      curl -X GET "https://api.wizium.com/v1/documents" \
+        -H "Authorization: Bearer YOUR_API_KEY"
+      ````
+      ````python
+import requests
+
+response = requests.get(
+    "https://api.wizium.com/v1/documents",
+    headers={"Authorization": "Bearer YOUR_API_KEY"}
+)
+print(response.json())
+      ````
+    </CodeGroup>
+  </Tab>
+  <Tab title="Mobile App" icon="smartphone">
+    Stay productive on the go with our mobile app for iOS and Android.
+
+    <Expandable title="Mobile Features" default-open="false">
+      - Offline document access
+      - Push notifications for updates
+      - Voice-to-text transcription
+      - Quick search across all docs
+    </Expandable>
+  </Tab>
+</Tabs>
+
+## Security and Compliance
+
+Your documentation security is our top priority. WIZIUM employs industry-standard encryption for data at rest and in transit, along with role-based access controls to ensure only authorized team members can view or edit sensitive information.
+
+<ExpandableGroup>
+  <Expandable title="Encryption Standards" default-open="true">
+    All data is encrypted using AES-256 encryption, and we support SSO integration with providers like Okta and Auth0.
+  </Expandable>
+  <Expandable title="Compliance Certifications" default-open="false">
+    WIZIUM is SOC 2 Type II certified and GDPR compliant, making it suitable for enterprise use.
+  </Expandable>
+</ExpandableGroup>
+
+## Getting Help
+
+Our comprehensive support system ensures you have the resources needed to succeed with WIZIUM. From detailed documentation to responsive customer support, we're here to help you make the most of our platform.
+
+<Callout kind="info">Need assistance? Visit our help center at support.wizium.com or contact our team at support@wizium.com.</Callout>
+
+## What's Next
+
+Now that you have an overview of WIZIUM, dive deeper into our setup guide to get your workspace configured, or explore our feature documentation to learn about advanced capabilities. WIZIUM grows with your team, from small projects to enterprise-scale documentation needs.

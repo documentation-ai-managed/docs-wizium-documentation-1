@@ -1,0 +1,155 @@
+---
+title: Features
+description: Explore WIZIUM's core features and capabilities
+---
+
+## Core Features of WIZIUM
+
+WIZIUM offers a comprehensive set of features designed to streamline documentation workflows and enhance team collaboration. From rich text editing to advanced search capabilities, our platform provides everything you need to create professional documentation that scales with your organization.
+
+<Columns cols={3}>
+  <Card title="Rich Text Editor" icon="edit" href="#editor">
+    Powerful editing with markdown support, tables, code blocks, and media embedding.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="#versioning">
+    Track changes, compare versions, and roll back when needed.
+  </Card>
+  <Card title="Team Collaboration" icon="users" href="#collaboration">
+    Real-time editing, comments, and approval workflows.
+  </Card>
+</Columns>
+
+## Rich Text Editor {#editor}
+
+Our advanced editor combines the simplicity of markdown with the power of rich formatting. Create complex documents with ease using our intuitive interface.
+
+<CodeGroup tabs="Markdown,HTML">
+  ````markdown
+  # Document Title
+
+  This is a **bold** statement with `inline code`.
+
+  | Feature | Description |
+  |---------|-------------|
+  | Tables | Easy to create |
+  | Code | Syntax highlighted |
+  ````
+  ````html
+  <h1>Document Title</h1>
+  <p>This is a <strong>bold</strong> statement with <code>inline code</code>.</p>
+  <table>
+    <tr><th>Feature</th><th>Description</th></tr>
+    <tr><td>Tables</td><td>Easy to create</td></tr>
+    <tr><td>Code</td><td>Syntax highlighted</td></tr>
+  </table>
+  ````
+</CodeGroup>
+
+<Callout kind="info">The editor supports live preview, so you can see your formatting as you type.</Callout>
+
+## Version Control {#versioning}
+
+Never lose important changes with WIZIUM's comprehensive version control system. Every edit is automatically saved and versioned.
+
+<Tabs>
+  <Tab title="Automatic Saves" icon="save">
+    Documents are saved every 30 seconds automatically, preventing data loss.
+  </Tab>
+  <Tab title="Version History" icon="clock">
+    View complete history of changes with timestamps and author information.
+
+    <Expandable title="Version Features" default-open="false">
+      - Compare versions side-by-side
+      - Restore previous versions
+      - Export version history
+      - Set version retention policies
+    </Expandable>
+  </Tab>
+  <Tab title="Branching" icon="git-branch">
+    Create branches for major updates or experimental features.
+  </Tab>
+</Tabs>
+
+## Team Collaboration {#collaboration}
+
+Work together seamlessly with features designed for distributed teams. Real-time collaboration ensures everyone stays in sync.
+
+<Steps>
+  <Step title="Real-Time Editing" icon="zap">
+    See changes from other team members instantly as they type.
+  </Step>
+  <Step title="Comments and Reviews" icon="message-square">
+    Add comments, suggest changes, and approve documents through review workflows.
+
+    <Callout kind="tip">Use @mentions to notify specific team members about updates.</Callout>
+  </Step>
+  <Step title="Access Permissions" icon="lock">
+    Control who can view, edit, or publish documents with granular permissions.
+  </Step>
+</Steps>
+
+## Advanced Search and Discovery
+
+Find information quickly with our powerful search engine that indexes all your documentation.
+
+| Search Feature | Description |
+|----------------|-------------|
+| Full-text search | Search across all documents and content |
+| Filters | Filter by author, date, or document type |
+| Tags | Organize content with custom tags |
+| AI-powered suggestions | Get relevant results with smart ranking |
+
+<ExpandableGroup>
+  <Expandable title="Search Tips" default-open="true">
+    Use quotes for exact phrases, operators like AND/OR, and wildcards for flexible searching.
+  </Expandable>
+  <Expandable title="Indexing" default-open="false">
+    Documents are automatically indexed for instant search results across your entire workspace.
+  </Expandable>
+</ExpandableGroup>
+
+## Integrations and Automation
+
+Connect WIZIUM with your existing tools to create seamless workflows. Our API and webhooks enable automation and data synchronization.
+
+<CodeGroup tabs="Webhook,API Call">
+  ````json
+  {
+    "event": "document.updated",
+    "document": {
+      "id": "doc_123",
+      "title": "API Reference",
+      "author": "john.doe@company.com"
+    }
+  }
+  ````
+  ````python
+import requests
+
+# Update document via API
+response = requests.patch(
+    "https://api.wizium.com/v1/documents/doc_123",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={"title": "Updated API Reference"}
+)
+  ````
+</CodeGroup>
+
+## Analytics and Insights
+
+Track how your documentation is being used with detailed analytics. Understand engagement patterns and identify popular content.
+
+<Callout kind="success">Analytics help you optimize your documentation strategy and focus on high-impact content.</Callout>
+
+## Security and Compliance
+
+Enterprise-grade security features ensure your documentation remains protected. We support SSO, audit logs, and compliance certifications.
+
+- End-to-end encryption
+- Role-based access control
+- Audit trails for all changes
+- GDPR and SOC 2 compliance
+
+## Getting Started with Features
+
+To make the most of WIZIUM's capabilities, start by exploring the editor, then set up version control and collaboration features. Our usage guide provides detailed instructions for implementing these features in your workflow.

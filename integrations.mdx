@@ -1,0 +1,180 @@
+---
+title: Integrations
+description: Learn how to integrate WIZIUM with other tools and services
+---
+
+## WIZIUM Integrations
+
+WIZIUM integrates seamlessly with popular development and productivity tools to create a unified documentation workflow. Connect your favorite applications to automate documentation processes, sync data, and enhance collaboration across your tech stack.
+
+<Columns cols={3}>
+  <Card title="GitHub" icon="github" href="#github">
+    Sync documentation with code repositories and automate releases.
+  </Card>
+  <Card title="Slack" icon="message-square" href="#slack">
+    Get notifications and collaborate on docs directly from Slack.
+  </Card>
+  <Card title="Jira" icon="check-square" href="#jira">
+    Link documentation to issues and track progress.
+  </Card>
+</Columns>
+
+## GitHub Integration {#github}
+
+Connect your WIZIUM workspace to GitHub repositories for version-controlled documentation. Automatically sync changes and maintain documentation alongside your code.
+
+<Steps>
+  <Step title="Connect Repository" icon="plug">
+    In WIZIUM settings, click "Add Integration" and select GitHub. Authorize access to your repositories.
+
+    <CodeGroup tabs="Web UI,API">
+      ````javascript
+      // Web UI: Settings > Integrations > GitHub > Connect
+      // Select repository and branch for sync
+      ````
+      ````bash
+      curl -X POST "https://api.wizium.com/v1/integrations/github" \
+        -H "Authorization: Bearer YOUR_API_KEY" \
+        -H "Content-Type: application/json" \
+        -d '{"repo": "owner/repo", "branch": "main"}'
+      ````
+    </CodeGroup>
+  </Step>
+  <Step title="Configure Sync" icon="refresh-cw">
+    Set up automatic syncing when commits are pushed to the specified branch.
+  </Step>
+  <Step title="Pull Request Reviews" icon="git-pull-request">
+    Enable documentation reviews as part of your PR process.
+  </Step>
+</Steps>
+
+<Expandable title="GitHub Webhooks" default-open="false">
+  Configure webhooks to trigger documentation updates when code changes are merged. This ensures your docs stay current with your codebase.
+</Expandable>
+
+## Slack Integration {#slack}
+
+Keep your team informed about documentation changes with Slack notifications. Share docs directly in channels and receive updates on edits and comments.
+
+<Tabs>
+  <Tab title="Notifications" icon="bell">
+    Get notified when documents are updated, commented on, or published.
+
+    <Callout kind="info">Customize notification frequency to avoid overwhelming your channels.</Callout>
+  </Tab>
+  <Tab title="Slash Commands" icon="terminal">
+    Use `/wizium search "topic"` to find documentation from Slack.
+
+    ````bash
+    /wizium search "authentication setup"
+    /wizium create "New API Guide"
+    ````
+  </Tab>
+  <Tab title="Channel Sharing" icon="share-2">
+    Share document links and previews directly in Slack conversations.
+  </Tab>
+</Tabs>
+
+## Jira Integration {#jira}
+
+Link documentation to Jira issues for better project tracking and context. Automatically create docs from issues and track documentation progress.
+
+<ExpandableGroup>
+  <Expandable title="Issue Linking" default-open="true">
+    Connect WIZIUM documents to Jira issues using issue keys. View related documentation directly from Jira.
+  </Expandable>
+  <Expandable title="Automation Rules" default-open="false">
+    Set up rules to create documentation when issues are created or moved to certain statuses.
+  </Expandable>
+  <Expandable title="Progress Tracking" default-open="false">
+    Monitor documentation completion alongside development progress.
+  </Expandable>
+</ExpandableGroup>
+
+## API and Webhook Integrations
+
+For custom integrations, use our REST API and webhook system to build powerful automation workflows.
+
+<CodeGroup tabs="Webhook Setup,API Example">
+  ````json
+  {
+    "url": "https://your-app.com/webhook",
+    "events": ["document.created", "document.updated"],
+    "secret": "your_webhook_secret"
+  }
+  ````
+  ````python
+import requests
+
+# Create document via API
+response = requests.post(
+    "https://api.wizium.com/v1/documents",
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
+    json={
+        "title": "New Integration Guide",
+        "content": "Detailed setup instructions...",
+        "tags": ["integration", "api"]
+    }
+)
+print(f"Created document: {response.json()['id']}")
+  ````
+</CodeGroup>
+
+## Popular Third-Party Integrations
+
+| Tool | Integration Type | Use Case |
+|------|------------------|----------|
+| Figma | Asset sync | Embed design mockups in docs |
+| Zapier | Workflow automation | Connect to 2000+ apps |
+| Notion | Import/export | Migrate content between platforms |
+| Google Drive | File sync | Sync attachments and assets |
+
+<Callout kind="tip">Check our integrations marketplace for the latest supported tools and ready-made connectors.</Callout>
+
+## Custom Integrations
+
+Build your own integrations using our developer SDK and comprehensive API documentation. Our SDK supports multiple languages and provides helper libraries.
+
+<Steps>
+  <Step title="Get API Key" icon="key">
+    Generate an API key in your WIZIUM account settings.
+  </Step>
+  <Step title="Choose SDK" icon="package">
+    Select from our JavaScript, Python, or Go SDKs.
+  </Step>
+  <Step title="Implement Logic" icon="code">
+    Write code to sync data, create documents, or trigger workflows.
+  </Step>
+  <Step title="Test and Deploy" icon="check-circle">
+    Test your integration thoroughly before going live.
+  </Step>
+</Steps>
+
+## Integration Best Practices
+
+Follow these guidelines to ensure reliable and maintainable integrations:
+
+- Implement proper error handling and retry logic
+- Use webhooks for real-time updates instead of polling
+- Validate API responses and handle rate limits
+- Store API keys securely using environment variables
+- Monitor integration health with logging and alerts
+
+<Expandable title="Security Considerations" default-open="false">
+  Always use HTTPS for webhook endpoints, validate webhook signatures, and rotate API keys regularly. Never commit secrets to version control.
+</Expandable>
+
+## Troubleshooting Integrations
+
+Common integration issues and their solutions:
+
+| Problem | Solution |
+|---------|----------|
+| Webhook not firing | Check URL accessibility and SSL certificate |
+| API authentication fails | Verify API key and permissions |
+| Sync delays | Review rate limits and retry policies |
+| Data inconsistencies | Implement checksums or version tracking |
+
+## Support and Resources
+
+Need help with integrations? Our developer portal provides detailed guides, code samples, and community forums. Contact our integration specialists for custom development assistance.

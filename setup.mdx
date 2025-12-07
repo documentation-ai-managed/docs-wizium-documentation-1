@@ -1,0 +1,111 @@
+---
+title: Setup
+description: Guide to setting up your WIZIUM workspace and getting started
+---
+
+## Setting Up Your WIZIUM Workspace
+
+Getting started with WIZIUM is straightforward and takes just a few minutes. This guide will walk you through creating your account, configuring your workspace, and importing your first documents. By the end, you'll have a fully functional documentation environment ready for your team.
+
+<Steps>
+  <Step title="Create Account" icon="user">
+    Visit wizium.com/signup and provide your email address and a secure password. You'll receive a verification email to confirm your account.
+
+    <Callout kind="info">Use a business email for team collaboration features.</Callout>
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox for the verification link and click it to activate your account. This step ensures account security.
+  </Step>
+  <Step title="Set Up Workspace" icon="folder">
+    Choose a workspace name that reflects your project or organization. You can create multiple workspaces for different teams or projects.
+
+    <CodeGroup tabs="Web Interface,API">
+      ````javascript
+      // Web Interface: Click "Create Workspace" in dashboard
+      // Fill in: Name, Description, Team Size
+      ````
+      ````bash
+      curl -X POST "https://api.wizium.com/v1/workspaces" \
+        -H "Authorization: Bearer YOUR_API_KEY" \
+        -H "Content-Type: application/json" \
+        -d '{"name": "My Project", "description": "Documentation workspace"}'
+      ````
+    </CodeGroup>
+  </Step>
+  <Step title="Invite Team Members" icon="users">
+    Add colleagues by entering their email addresses. Assign roles like Admin, Editor, or Viewer based on their needs.
+
+    <Expandable title="Role Permissions" default-open="false">
+      - **Admin**: Full access to settings and billing
+      - **Editor**: Can create and edit documents
+      - **Viewer**: Read-only access to published docs
+    </Expandable>
+  </Step>
+  <Step title="Import Documents" icon="upload">
+    Upload existing documentation in various formats including Markdown, HTML, and PDF. WIZIUM will automatically convert them.
+
+    <Tabs>
+      <Tab title="Markdown" icon="file-text">
+        ````bash
+        # Example: Import a README.md file
+        curl -X POST "https://api.wizium.com/v1/documents/import" \
+          -H "Authorization: Bearer YOUR_API_KEY" \
+          -F "file=@README.md" \
+          -F "format=markdown"
+        ````
+      </Tab>
+      <Tab title="HTML" icon="code">
+        ````bash
+        # Import HTML documentation
+        curl -X POST "https://api.wizium.com/v1/documents/import" \
+          -H "Authorization: Bearer YOUR_API_KEY" \
+          -F "file=@docs.html" \
+          -F "format=html"
+        ````
+      </Tab>
+    </Tabs>
+  </Step>
+</Steps>
+
+## Configuration Options
+
+After basic setup, customize WIZIUM to match your workflow. Configure branding, access controls, and integration settings to create a documentation environment that fits your team's needs.
+
+<ExpandableGroup>
+  <Expandable title="Branding Settings" default-open="true">
+    Upload your company logo, set custom colors, and configure the workspace URL to match your brand identity.
+  </Expandable>
+  <Expandable title="Access Controls" default-open="false">
+    Set up SSO, two-factor authentication, and granular permissions to secure your documentation.
+  </Expandable>
+  <Expandable title="Integration Setup" default-open="false">
+    Connect with tools like GitHub for version control, Slack for notifications, and Jira for issue tracking.
+  </Expandable>
+</ExpandableGroup>
+
+## Best Practices for Setup
+
+<Callout kind="tip">Start small with a pilot project to test WIZIUM's capabilities before rolling out to your entire organization.</Callout>
+
+Consider these recommendations for a successful WIZIUM implementation:
+
+- Begin with 2-3 team members to establish workflows
+- Import a representative sample of your existing documentation
+- Set up clear naming conventions for documents and folders
+- Configure notifications to keep team members informed of updates
+- Enable version history to track changes over time
+
+## Troubleshooting Common Issues
+
+If you encounter problems during setup, check our troubleshooting guide or contact support.
+
+| Issue | Solution |
+|-------|----------|
+| Email verification not received | Check spam folder, resend verification email |
+| Workspace creation fails | Ensure workspace name is unique and under 50 characters |
+| Import errors | Verify file format is supported (MD, HTML, PDF) |
+| Team invites not working | Confirm email addresses are valid and not blocked |
+
+## Next Steps
+
+With your workspace set up, explore WIZIUM's core features to understand how to create and manage documentation effectively. Check out our features guide for detailed information on advanced capabilities.

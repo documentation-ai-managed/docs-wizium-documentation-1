@@ -1,0 +1,198 @@
+openapi: '3.0.0'
+info:
+  version: 1.0.0
+  title: WIZIUM API
+  license:
+    name: MIT
+servers:
+  - url: https://api.wizium.com/v1
+paths:
+  /documents:
+    get:
+      summary: Retrieve a paginated list of all documents in the workspace. This endpoint supports advanced filtering by author, tags, and date ranges to help users find specific documentation quickly. It returns detailed document metadata including titles, authors, and last modified timestamps for efficient browsing.
+      operationId: listDocuments
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of documents to return (max 100)
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        200:
+          description: Successful response with paginated document list
+          headers:
+            x-next:
+              description: Link to next page of results
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Documents'
+        default:
+          description: Unexpected error occurred during document retrieval
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create a new document in the workspace. This endpoint allows users to programmatically add documentation with rich content, metadata, and permissions. It supports various content formats and automatically generates version history for tracking changes over time.
+      operationId: createDocument
+      responses:
+        201:
+          description: Document successfully created with unique identifier
+        default:
+          description: Unexpected error occurred during document creation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /documents/{documentId}:
+    get:
+      summary: Fetch detailed information for a specific document by its unique identifier. This endpoint provides comprehensive document data including full content, metadata, version history, and collaboration information. It's essential for displaying individual documents in the user interface.
+      operationId: getDocument
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          description: Unique identifier of the document to retrieve
+          schema:
+            type: string
+      responses:
+        200:
+          description: Document details successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Documents'
+        default:
+          description: Unexpected error occurred during document retrieval
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /projects:
+    get:
+      summary: List all projects within the workspace for organizational purposes. This endpoint helps users navigate their documentation structure by providing an overview of available projects and their associated metadata. It supports filtering to find specific projects efficiently.
+      operationId: listProjects
+      parameters:
+        - name: limit
+          in: query
+          description: Number of projects to return per page
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        200:
+          description: Projects list retrieved successfully
+          headers:
+            x-next:
+              description: Pagination link for next results
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Projects'
+        default:
+          description: Unexpected error during project listing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Establish a new project to organize related documentation and team members. This endpoint creates project containers with customizable settings for permissions, descriptions, and member assignments. It enables better documentation management through logical grouping.
+      operationId: createProject
+      responses:
+        201:
+          description: Project created successfully
+        default:
+          description: Unexpected error during project creation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /projects/{projectId}:
+    get:
+      summary: Obtain comprehensive details about a specific project including its documentation, team members, and configuration settings. This endpoint is crucial for project dashboards and management interfaces, providing all necessary information for project administration.
+      operationId: getProject
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          description: Unique project identifier
+          schema:
+            type: string
+      responses:
+        200:
+          description: Project information retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Projects'
+        default:
+          description: Unexpected error during project retrieval
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Document:
+      required:
+        - id
+        - title
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        content:
+          type: string
+        author:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Documents:
+      type: array
+      items:
+        $ref: '#/components/schemas/Document'
+    Project:
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        members:
+          type: array
+          items:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+    Projects:
+      type: array
+      items:
+        $ref: '#/components/schemas/Project'
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

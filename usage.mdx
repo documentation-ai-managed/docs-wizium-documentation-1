@@ -1,0 +1,213 @@
+---
+title: Usage
+description: Daily usage patterns and workflows in WIZIUM
+---
+
+## Using WIZIUM Daily
+
+Master the day-to-day workflows in WIZIUM to maximize productivity and collaboration. This guide covers common tasks, best practices, and tips for efficient documentation management.
+
+<Columns cols={3}>
+  <Card title="Creating Content" icon="edit" href="#creating">
+    Learn how to create and format documents effectively.
+  </Card>
+  <Card title="Organizing Docs" icon="folder" href="#organizing">
+    Structure your documentation for easy navigation.
+  </Card>
+  <Card title="Collaborating" icon="users" href="#collaborating">
+    Work with your team on shared documents.
+  </Card>
+</Columns>
+
+## Creating Content {#creating}
+
+Start creating professional documentation with WIZIUM's intuitive tools. From quick notes to comprehensive guides, our editor adapts to your needs.
+
+<Steps>
+  <Step title="Create New Document" icon="file-plus">
+    Click the "New Document" button and choose a template or start blank.
+
+    <Expandable title="Document Templates" default-open="false">
+      Choose from API docs, user guides, release notes, or create custom templates.
+    </Expandable>
+  </Step>
+  <Step title="Write Content" icon="edit">
+    Use markdown or rich text formatting to create engaging content.
+
+    <CodeGroup tabs="Markdown,Richtext">
+      ````markdown
+      ## API Authentication
+
+      To authenticate, include your API key in the header:
+
+      ```
+      Authorization: Bearer YOUR_API_KEY
+      ```
+      ````
+      ````html
+      <h2>API Authentication</h2>
+      <p>To authenticate, include your API key in the header:</p>
+      <pre><code>Authorization: Bearer YOUR_API_KEY</code></pre>
+      ````
+    </CodeGroup>
+  </Step>
+  <Step title="Add Media" icon="image">
+    Embed images, videos, and diagrams to enhance your documentation.
+
+    <Callout kind="info">Supported formats include PNG, JPG, GIF, MP4, and Mermaid diagrams.</Callout>
+  </Step>
+  <Step title="Publish" icon="send">
+    Set visibility permissions and publish your document to your team.
+  </Step>
+</Steps>
+
+## Organizing Documentation {#organizing}
+
+Keep your documentation structured and discoverable with effective organization strategies.
+
+<Tabs>
+  <Tab title="Folders" icon="folder">
+    Create hierarchical folder structures for different projects or topics.
+
+    | Folder Type | Example |
+    |-------------|---------|
+    | By Project | /Project Alpha, /Project Beta |
+    | By Function | /API Docs, /User Guides |
+    | By Team | /Engineering, /Product, /Support |
+  </Tab>
+  <Tab title="Tags" icon="tag">
+    Use tags for cross-cutting organization and flexible filtering.
+
+    <Expandable title="Tag Best Practices" default-open="false">
+      - Use consistent naming conventions
+      - Create tag hierarchies (api/v1, api/v2)
+      - Limit to 5-10 tags per document
+      - Review and clean up unused tags regularly
+    </Expandable>
+  </Tab>
+  <Tab title="Collections" icon="book-open">
+    Group related documents into collections for guided reading experiences.
+  </Tab>
+</Tabs>
+
+## Team Collaboration {#collaborating}
+
+Collaborate effectively with your team using WIZIUM's real-time editing and communication features.
+
+<ExpandableGroup>
+  <Expandable title="Real-Time Editing" default-open="true">
+    See changes from colleagues instantly. Use cursor indicators to know who's editing what.
+  </Expandable>
+  <Expandable title="Comments and Threads" default-open="false">
+    Add contextual comments and start threaded discussions on specific sections.
+
+    <Callout kind="tip">Use @mentions to notify specific team members about important discussions.</Callout>
+  </Expandable>
+  <Expandable title="Review Workflows" default-open="false">
+    Set up approval processes for critical documentation changes.
+  </Expandable>
+</ExpandableGroup>
+
+## Search and Discovery
+
+Find information quickly with WIZIUM's powerful search capabilities.
+
+<Steps>
+  <Step title="Basic Search" icon="search">
+    Use the search bar to find documents by title, content, or metadata.
+  </Step>
+  <Step title="Advanced Filters" icon="filter">
+    Filter results by author, date range, tags, or document type.
+
+    ````bash
+    # Search examples
+    "authentication api" author:john
+    tag:api created:2024-01
+    ````
+  </Step>
+  <Step title="Saved Searches" icon="bookmark">
+    Save frequently used searches for quick access.
+  </Step>
+</Steps>
+
+## Version Management
+
+Track changes and maintain document history with version control.
+
+<CodeGroup tabs="Compare Versions,Restore Version">
+  ````javascript
+  // Compare versions side-by-side
+  // In document view: History > Compare
+  // Select two versions to diff
+  ````
+  ````bash
+  # Restore previous version via API
+  curl -X POST "https://api.wizium.com/v1/documents/doc_123/restore" \
+    -H "Authorization: Bearer YOUR_API_KEY" \
+    -d '{"version_id": "v1.2"}'
+  ````
+</CodeGroup>
+
+<Callout kind="success">Regularly review version history to understand how your documentation evolves over time.</Callout>
+
+## Workflow Automation
+
+Streamline repetitive tasks with automation features.
+
+| Automation Type | Example |
+|-----------------|---------|
+| Scheduled Publishing | Auto-publish release notes |
+| Template Application | Apply formatting to new docs |
+| Notification Rules | Alert teams on doc updates |
+| Integration Triggers | Sync with external systems |
+
+## Mobile Usage
+
+Access your documentation on the go with WIZIUM's mobile applications.
+
+<Expandable title="Mobile Features" default-open="false">
+  - Offline document access
+  - Voice notes and transcription
+  - Push notifications for updates
+  - Quick search and bookmarking
+  - Camera integration for photos
+</Expandable>
+
+## Productivity Tips
+
+Boost your efficiency with these proven techniques:
+
+- Use keyboard shortcuts for common actions (Ctrl+S to save, Ctrl+K for search)
+- Create document templates for consistent formatting
+- Set up email digests for documentation updates
+- Use the "Recently Viewed" section for quick access
+- Enable dark mode for extended editing sessions
+
+<Expandable title="Advanced Tips" default-open="false">
+  - Master search operators for precise queries
+  - Use document analytics to identify popular content
+  - Set up personal dashboards for customized views
+  - Leverage API access for custom integrations
+</Expandable>
+
+## Troubleshooting Common Issues
+
+Quick solutions to frequent problems:
+
+| Issue | Solution |
+|-------|----------|
+| Slow loading | Clear browser cache, check internet connection |
+| Formatting issues | Switch to markdown mode for complex layouts |
+| Collaboration conflicts | Use version history to resolve merge conflicts |
+| Search not working | Check spelling, use simpler terms, clear filters |
+
+## Getting Help
+
+Access comprehensive help resources within WIZIUM:
+
+- In-app help center with searchable guides
+- Interactive tutorials for new features
+- Community forums for peer support
+- Direct support chat for urgent issues
+
+<Callout kind="info">Most questions are answered in our help center - search there first for instant solutions.</Callout>
